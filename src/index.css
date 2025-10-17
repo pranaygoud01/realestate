@@ -1,0 +1,63 @@
+@import "tailwindcss";
+*{
+   font-family: "Inter", sans-serif;
+}
+
+.font-inter{
+    font-family: "Inter", sans-serif;
+}
+
+/* Hero animations and helpers */
+.bg-overlay{
+    background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));
+}
+
+.gradient-text{
+    background: linear-gradient(90deg, #8b5cf6, #f97316, #facc15);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-gradient{
+    background-size: 200% 200%;
+    animation: gradientShift 5s ease infinite;
+}
+
+/* Floating cards subtle motion */
+@keyframes floatY {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.floating-card{
+    transform-origin: center;
+    animation: floatY 6s ease-in-out infinite;
+}
+.floating-card.delay-200{ animation-delay: 0.2s; }
+.floating-card.delay-400{ animation-delay: 0.4s; }
+
+/* Inline thumb entrance */
+.inline-thumb{
+    transform-origin: center;
+    animation: thumbPulse 4s ease-in-out infinite;
+}
+@keyframes thumbPulse{
+    0% { transform: scale(1); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+    50% { transform: scale(1.03); box-shadow: 0 14px 40px rgba(0,0,0,0.32); }
+    100% { transform: scale(1); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+}
+
+/* CTA button style (small override to ensure visibility on dark overlay) */
+.cta-btn{
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.cta-btn:hover{ transform: translateY(-2px); box-shadow: 0 18px 40px rgba(2,6,23,0.45); }
