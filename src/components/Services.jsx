@@ -104,7 +104,7 @@ const Services = () => {
               transition={{ delay: index * 0.1 }}
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
+              className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
             >
               {/* Video Background with Overlay */}
               <div className="relative h-48 sm:h-52 md:h-56 overflow-hidden">
@@ -173,7 +173,7 @@ const Services = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-slate-200"
+          className="bg-white rounded-xl p-8 sm:p-12 lg:p-16 shadow-xl border border-slate-200"
         >
           <div className="text-center mb-12">
             <h2 className="font-inter text-3xl sm:text-4xl font-bold text-slate-900 mb-3">
