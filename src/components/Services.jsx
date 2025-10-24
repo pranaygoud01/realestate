@@ -9,7 +9,7 @@ import propertyinvestment from '../assets/Property-Investment.mp4';
 import personal from "../assets/personal.mp4";
 
 const Services = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [activeCard, setActiveCard] = useState(null);
 
   const services = [
     {
@@ -17,8 +17,9 @@ const Services = () => {
       description: "Find your dream property with our advanced search tools and extensive database of listings.",
       video: propertysearch,
       icon: <RiSearchLine />,
-      gradient: "from-purple-500 via-purple-600 to-indigo-600",
-      bgGradient: "from-purple-50 to-indigo-50",
+      color: "bg-blue-600",
+      lightColor: "bg-blue-50",
+      borderColor: "border-blue-600",
       count: "01"
     },
     {
@@ -26,8 +27,9 @@ const Services = () => {
       description: "Professional management services for property owners and investors.",
       video: propertymanagement,
       icon: <RiBuilding2Line />,
-      gradient: "from-orange-500 via-orange-600 to-red-600",
-      bgGradient: "from-orange-50 to-red-50",
+      color: "bg-emerald-600",
+      lightColor: "bg-emerald-50",
+      borderColor: "border-emerald-600",
       count: "02"
     },
     {
@@ -35,8 +37,9 @@ const Services = () => {
       description: "Expert guidance on real estate investments and market analysis.",
       video: propertyinvestment,
       icon: <RiBarChartBoxLine />,
-      gradient: "from-yellow-500 via-amber-600 to-orange-600",
-      bgGradient: "from-yellow-50 to-amber-50",
+      color: "bg-amber-600",
+      lightColor: "bg-amber-50",
+      borderColor: "border-amber-600",
       count: "03"
     },
     {
@@ -44,77 +47,69 @@ const Services = () => {
       description: "Dedicated support throughout your real estate journey.",
       video: personal,
       icon: <RiCustomerService2Line />,
-      gradient: "from-pink-500 via-rose-600 to-red-600",
-      bgGradient: "from-pink-50 to-rose-50",
+      color: "bg-rose-600",
+      lightColor: "bg-rose-50",
+      borderColor: "border-rose-600",
       count: "04"
     },
   ];
 
   const stats = [
-    { icon: <MdTrendingUp />, value: "250%", label: "Growth Rate" },
-    { icon: <MdSecurity />, value: "100%", label: "Secure" },
-    { icon: <MdSpeed />, value: "24/7", label: "Support" },
-    { icon: <MdVerified />, value: "5000+", label: "Properties" }
+    { icon: <MdTrendingUp />, value: "250%", label: "Growth Rate", color: "text-blue-600" },
+    { icon: <MdSecurity />, value: "100%", label: "Secure", color: "text-emerald-600" },
+    { icon: <MdSpeed />, value: "24/7", label: "Support", color: "text-amber-600" },
+    { icon: <MdVerified />, value: "5000+", label: "Properties", color: "text-rose-600" }
   ];
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center bg-white py-12 sm:py-16 lg:py-24">
-      <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+    <div className="w-full min-h-screen bg-white py-16 sm:py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header with Sparkle */}
+        {/* Minimalist Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          className="mb-16 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-orange-100 px-4 py-2 rounded-full mb-4">
-            <HiSparkles className="text-orange-500" />
-            <span className="text-xs sm:text-sm font-semibold text-gray-700">Our Expertise</span>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 bg-white border border-slate-200 px-4 py-2 rounded-full mb-6 shadow-sm"
+          >
+            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-slate-700">Our Services</span>
+          </motion.div>
           
-          <h1 className="font-inter font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-neutral-900 mb-4">
-            Exceptional{' '}
-            <span className="relative">
-              <span className="bg-gradient-to-r from-purple-600 via-orange-500 to-yellow-500 text-transparent bg-clip-text">
-                Services
-              </span>
-              <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                <path d="M0 4C50 1 150 1 200 4" stroke="url(#gradient)" strokeWidth="3" strokeLinecap="round"/>
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#9333EA" />
-                    <stop offset="50%" stopColor="#F97316" />
-                    <stop offset="100%" stopColor="#EAB308" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
+          <h1 className="font-inter font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 mb-6 leading-tight">
+            Premium Real Estate
+            <br />
+            <span className="text-slate-400">Solutions</span>
           </h1>
-          <p className="text-gray-600 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
-            Discover our comprehensive suite of real estate solutions designed to make your property journey seamless and successful
+          
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed">
+            Experience excellence in every interaction. Our comprehensive services are designed to exceed your expectations.
           </p>
         </motion.div>
 
-        {/* Services Grid - Bento Box Style */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12 sm:mb-16">
+        {/* Card Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 mb-12 sm:mb-14 lg:mb-16">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
-              className={`relative group cursor-pointer overflow-hidden rounded-xl sm:rounded-xl ${
-                index === 0 || index === 3 ? 'md:row-span-1' : ''
-              }`}
+              transition={{ delay: index * 0.1 }}
+              onMouseEnter={() => setActiveCard(index)}
+              onMouseLeave={() => setActiveCard(null)}
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
             >
-              {/* Background Video */}
-              <div className="relative h-[350px] sm:h-[400px] lg:h-[450px] overflow-hidden">
+              {/* Video Background with Overlay */}
+              <div className="relative h-48 sm:h-52 md:h-56 overflow-hidden">
                 <video
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   autoPlay
                   loop
                   muted
@@ -123,109 +118,94 @@ const Services = () => {
                   <source src={service.video} type="video/mp4" />
                 </video>
                 
-                {/* Gradient Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} mix-blend-multiply opacity-40 group-hover:opacity-30 transition-opacity duration-500`} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                {/* Modern Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/50"></div>
+                
+                {/* Floating Number Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 + 0.2 }}
+                  className="absolute top-4 left-4 w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl flex items-center justify-center"
+                >
+                  <span className="text-white font-bold text-sm sm:text-base">{service.count}</span>
+                </motion.div>
               </div>
 
-              {/* Content Overlay */}
-              <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
-                {/* Top Section */}
-                <div className="flex justify-between items-start">
-                  {/* Number Badge */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ delay: index * 0.1 + 0.3, type: "spring" }}
-                    className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full"
-                  >
-                    <span className="text-white font-bold text-sm">{service.count}</span>
-                  </motion.div>
+              {/* Content Section */}
+              <div className="p-4 sm:p-5 lg:p-6">
+                {/* Icon Circle */}
+                <motion.div
+                  whileHover={{ rotate: 15, scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className={`w-12 h-12 sm:w-14 sm:h-14 ${service.color} rounded-xl flex items-center justify-center text-white text-2xl sm:text-3xl mb-3 sm:mb-4 shadow-lg`}
+                >
+                  {service.icon}
+                </motion.div>
 
-                  {/* Icon */}
-                  <motion.div
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                    className={`text-4xl sm:text-5xl p-3 sm:p-4 bg-gradient-to-r ${service.gradient} rounded-2xl text-white shadow-2xl`}
-                  >
-                    {service.icon}
-                  </motion.div>
-                </div>
+                {/* Title & Description */}
+                <h3 className="font-inter text-lg sm:text-xl font-bold text-slate-900 mb-2">
+                  {service.title}
+                </h3>
+                
+                <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-2">
+                  {service.description}
+                </p>
 
-                {/* Bottom Section */}
-                <div>
-                  <motion.h3
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 + 0.2 }}
-                    className="font-inter text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3"
-                  >
-                    {service.title}
-                  </motion.h3>
-                  
-                  <motion.p
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 + 0.3 }}
-                    className="text-white/90 text-sm sm:text-base mb-4 leading-relaxed"
-                  >
-                    {service.description}
-                  </motion.p>
-
-                  {/* CTA Button */}
-                  <motion.button
-                    whileHover={{ x: 5 }}
-                    className="inline-flex items-center gap-2 text-white font-semibold text-sm group/btn"
-                  >
-                    <span>Learn More</span>
-                    <RiArrowRightLine className="text-lg group-hover/btn:translate-x-1 transition-transform" />
-                  </motion.button>
-                </div>
+                {/* Action Link */}
+                <motion.button
+                  whileHover={{ x: 5 }}
+                  className={`inline-flex items-center gap-2 text-slate-900 font-semibold text-xs sm:text-sm group/link`}
+                >
+                  <span>Explore</span>
+                  <RiArrowRightLine className="text-base transition-transform group-hover/link:translate-x-1" />
+                </motion.button>
               </div>
 
-              {/* Hover Border Effect */}
-              <div className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-transparent group-hover:border-white/50 transition-all duration-500 pointer-events-none`} />
+              {/* Accent Border on Hover */}
+              <div className={`absolute bottom-0 left-0 right-0 h-1 ${service.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
             </motion.div>
           ))}
         </div>
 
-        {/* Stats Section */}
+        {/* Modern Stats Section */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-purple-600 via-orange-500 to-yellow-500 rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden"
+          className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-slate-200"
         >
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-              backgroundSize: '30px 30px'
-            }} />
+          <div className="text-center mb-12">
+            <h2 className="font-inter text-3xl sm:text-4xl font-bold text-slate-900 mb-3">
+              Trusted by Thousands
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg">
+              Our numbers speak for themselves
+            </p>
           </div>
 
-          <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ scale: 0, opacity: 0 }}
+                initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, type: "spring", stiffness: 200 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center"
+                transition={{ delay: index * 0.1, type: "spring" }}
+                whileHover={{ y: -8 }}
+                className="text-center group"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
-                  className="text-4xl sm:text-5xl text-white mb-3 flex justify-center"
+                  className={`text-5xl sm:text-6xl ${stat.color} mb-4 flex justify-center`}
                 >
                   {stat.icon}
                 </motion.div>
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2">
+                <p className="text-4xl sm:text-5xl font-bold text-slate-900 mb-2">
                   {stat.value}
                 </p>
-                <p className="text-sm sm:text-base text-white/90 font-medium">
+                <p className="text-sm sm:text-base text-slate-600 font-medium uppercase tracking-wide">
                   {stat.label}
                 </p>
               </motion.div>
