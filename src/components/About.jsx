@@ -48,10 +48,10 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 lg:mb-16">
           {/* Left - Image/Video */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="relative order-1 overflow-visible"
           >
             <div className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-lg sm:shadow-xl h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px]">
@@ -73,10 +73,10 @@ const About = () => {
             
             {/* Floating Badge */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.4, delay: 0.2, type: "spring", stiffness: 200 }}
               className="absolute bottom-2 right-2 sm:-bottom-6 sm:-right-6 bg-white p-3 sm:p-6 rounded-lg sm:rounded-xl shadow-xl sm:shadow-2xl z-10"
             >
               <div className="text-center">
@@ -92,10 +92,10 @@ const About = () => {
 
           {/* Right - Content */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="flex flex-col justify-center order-2 mt-6 lg:mt-0"
           >
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-neutral-800 mb-3 sm:mb-4">
@@ -131,19 +131,23 @@ const About = () => {
 
         {/* Stats Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16"
         >
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ 
+                duration: 0.4, 
+                delay: index * 0.08,
+                ease: "easeOut"
+              }}
               className="bg-white p-4 sm:p-5 lg:p-6 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg sm:hover:shadow-xl transition-shadow duration-300 text-center border border-neutral-100"
             >
               <div className="text-2xl sm:text-3xl lg:text-4xl text-neutral-800 mb-2 flex justify-center">
@@ -175,10 +179,14 @@ const About = () => {
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: index * 0.08,
+                  ease: "easeOut"
+                }}
                 whileHover={{ scale: 1.05 }}
                 className="bg-gradient-to-br from-neutral-50 to-white p-4 sm:p-5 lg:p-6 rounded-lg sm:rounded-xl shadow hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 border border-neutral-100"
               >
@@ -198,10 +206,10 @@ const About = () => {
 
         {/* Team Image Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-lg sm:shadow-2xl h-[250px] sm:h-[350px] md:h-[400px]"
         >
           <img

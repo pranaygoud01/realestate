@@ -47,7 +47,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-white pt-20 lg:pt-0">
+    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-white pt-16 lg:pt-0">
       
 
       {/* Main Content */}
@@ -237,18 +237,11 @@ const Hero = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="absolute top-0 right-0 w-full h-[65%] sm:h-[70%] rounded-xl sm:rounded-xl overflow-hidden shadow-2xl border-2 sm:border-0 border-white"
             >
-              <video
+              <img
                 className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source
-                  src="https://www.pexels.com/download/video/2325093/"
-                  type="video/mp4"
+                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&q=80"
                 />
-              </video>
+                
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               
               {/* Floating Badge on Video */}
